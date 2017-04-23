@@ -2,10 +2,8 @@ Charcoal mod
 ============
 
 Adds charcoal lumps.
-Charcoal lumps behaves like coal lumps but can be created by burning tree or jungletree in the furnance.
-
-
-Copyright (c) 2012 Gal Buki <torusJKL@gmail.com>
+Charcoal lumps behaves like coal lumps but can be created by burning any tree blocks in the furnance.
+Charcoal blocks can be crafted out of lumps and can be used as fuel. They don't support permanent flames.
 
 
 Installation
@@ -24,4 +22,7 @@ Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
 
 Attribution
 -----------
+Code and lump texture derived from torusJKL's charcoal mod copyright (c) 2012 Gal Buki <torusJKL@gmail.com>
 The charcoal graphics is a variation of the original minetest coal graphics.  
+
+Charcoal block texture derived from Minetests coal block
