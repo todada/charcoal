@@ -1,20 +1,13 @@
 --[[
-Charcoal
+Charcoal Mod
 ========
 
-Copyright (c) 2012 Gal Buki <torusJKL@gmail.com>
-
-Version: 0.2
+Version: 0.1
 
 Depends: default
 
-License for code:
-GPLv2 or later
-(http://www.gnu.org/licenses/gpl-2.0.html)
+License: see README
 
-License for texture:
-Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
-(http://creativecommons.org/licenses/by-sa/3.0/)
 --]]
 
 local modname = "charcoal"
@@ -32,9 +25,31 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+   output = 'charcoal:charcoalblock',
+   recipe = {
+      {'charcoal:charcoal_lump', 'charcoal:charcoal_lump', 'charcoal:charcoal_lump'},
+      {'charcoal:charcoal_lump', 'charcoal:charcoal_lump', 'charcoal:charcoal_lump'},
+      {'charcoal:charcoal_lump', 'charcoal:charcoal_lump', 'charcoal:charcoal_lump'},
+   }
+})
+
+minetest.register_craft({
+   output = 'charcoal:charcoal_lump 9',
+   recipe = {
+      {'charcoal:charcoalblock'},
+   }
+})
+
+minetest.register_craft({
         type = "fuel",
         recipe = "charcoal:charcoal_lump",
         burntime = 40,
+})
+
+minetest.register_craft({
+   type = "fuel",
+   recipe = "charcoal:charcoalblock",
+   burntime = 370,
 })
 
 --
@@ -44,20 +59,27 @@ minetest.register_craft({
 minetest.register_craft({
         type = "cooking",
         output = "charcoal:charcoal_lump",
-        recipe = "default:tree",
-})
-
-minetest.register_craft({
-        type = "cooking",
-        output = "charcoal:charcoal_lump",
-        recipe = "default:jungletree",
+        recipe = "group:tree",
 })
 
 --
--- Crafting items
+-- Crafting items and node blocks
 --
 
 minetest.register_craftitem("charcoal:charcoal_lump", {
-        description = "Lump of charcoal",
+        description = "Charcoal lump",
         inventory_image = "charcoal_lump.png",
+        groups = {coal = 1, flammable = 1},
 })
+
+--
+-- same as coalblock, but charcoal block is flammable and does not support 'permanent' flame
+-- (see fire mod)
+minetest.register_node("charcoal:charcoalblock", {
+   description = "Charcoal Block",
+   tiles = {"charcoal_charcoal_block.png"},
+   is_ground_content = false,
+   groups = {cracky = 3, flammable = 2},
+   sounds = default.node_sound_stone_defaults(),
+})
+
